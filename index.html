@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="fo-verify" content="5cd9500a-5ca1-4f45-8f24-323b97896299" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>huangse.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>huangse.com | 即将上线</title>
+  <meta name="description" content="huangse.com 即将上线，提供中文精选私密护理、舒适生活、助眠放松与情侣好物推荐。" />
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LBQDW923B5"></script>
   <script>
@@ -14,26 +16,423 @@
     gtag('config', 'G-LBQDW923B5');
   </script>
   <!-- End Google Analytics -->
+
   <style>
+    :root {
+      --bg: #f7f3ed;
+      --card: #fffdfa;
+      --text: #1f1f1f;
+      --muted: #6b6762;
+      --line: #e7ddd0;
+      --accent: #8c6a43;
+      --accent-soft: #f2e7d8;
+      --accent-soft-2: #efe6f6;
+      --accent-rose: #f6e3e6;
+      --hero-wash: radial-gradient(circle at top, rgba(140, 106, 67, 0.10), rgba(140, 106, 67, 0) 42%);
+      --shadow: 0 10px 30px rgba(41, 28, 12, 0.05);
+      --radius: 18px;
+      --max: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      font-family: Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: var(--hero-wash), linear-gradient(180deg, #fbf8f3 0%, #f3ede5 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 72px 0 44px;
       text-align: center;
-      padding: 50px;
-      background-color: #f9f9f9;
+      position: relative;
     }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .hero::after {
+      content: "";
+      display: block;
+      width: min(720px, 82%);
+      height: 1px;
+      margin: 36px auto 0;
+      background: linear-gradient(90deg, rgba(140,106,67,0), rgba(140,106,67,0.28), rgba(140,106,67,0));
+    }
+
+
     h1 {
-      color: #333;
+      margin: 20px 0 16px;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
     }
-    p {
-      color: #666;
+
+    .subhead {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: clamp(18px, 2.2vw, 24px);
+      color: var(--muted);
+    }
+
+    .en-subhead {
+      margin-top: 10px;
+      font-size: clamp(15px, 1.7vw, 19px);
+      max-width: 820px;
+      color: #7a7a7a;
+    }
+
+    .hero-note {
+      margin: 22px auto 0;
+      max-width: 720px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .section {
+      padding: 22px 0;
+    }
+
+    .section-title {
+      margin: 0 0 16px;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-copy {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,253,250,0.98));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .category-card h3,
+    .product-card h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .category-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--accent), #c7a883);
+      border-radius: 18px 0 0 18px;
+    }
+
+    .category-card p,
+    .product-card p,
+    .footer p,
+    .mini {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .en {
+      display: inline-block;
+      margin-top: 6px;
+      color: #7a7a7a;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .product-card:nth-child(2) .tag {
+      background: var(--accent-soft-2);
+      color: #6f4e8c;
+    }
+
+    .product-card:nth-child(3) .tag {
+      background: var(--accent-rose);
+      color: #9a5862;
+    }
+
+    .btn-row {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 148px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      font-weight: 700;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn.primary {
+      background: var(--text);
+      color: #fff;
+      border-color: var(--text);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .trust .card {
+      text-align: center;
+      padding: 18px 14px;
+      background: linear-gradient(180deg, #fffdfa, #fbf6ef);
+    }
+
+    .trust strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      padding: 34px 0 54px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .grid,
+      .trust,
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 52px;
+      }
+
+      .grid,
+      .trust,
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      .footer {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to huangse.com</h1>
-  <p>Contact: pinyindomains@yahoo.com</p>
-  <hr>
-  <h1>歡迎來到 huangse.com</h1>
-  <p>聯絡方式：pinyindomains@yahoo.com</p>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">即将上线 · Coming Soon</div>
+        <h1>精选私密与舒适生活好物</h1>
+        <p class="subhead">
+          huangse.com 正在打造一个中文导购平台，聚焦成年人私密护理、助眠放松、按摩舒缓与情侣好物推荐。
+        </p>
+        <p class="subhead en-subhead">
+          A Chinese-language curated recommendation site focused on private care, comfort, relaxation, and wellness products. Coming soon.
+        </p>
+        <p class="hero-note">
+          我们将持续整理实用、低调、体验友好的产品内容，帮助用户更轻松地找到值得考虑的选择。
+        </p>
+        <div class="btn-row">
+          <a class="btn primary" href="#categories">查看推荐分类</a>
+          <a class="btn" href="mailto:pinyindomains@yahoo.com">联系合作</a>
+        </div>
+        <p class="hero-note mini" style="margin-top:18px;">内容方向偏向私密护理、舒适生活、放松减压与情侣生活方式，整体风格将保持克制与清爽。</p>
+      </div>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="container">
+        <h2 class="section-title">首批推荐分类</h2>
+        <p class="section-copy">
+          首个版本将从少量精选分类开始，优先测试用户兴趣与点击表现。
+        </p>
+
+        <div class="grid">
+          <article class="card category-card">
+            <h3>私密护理</h3>
+            <p>围绕舒适、卫生、日常护理与低调实用体验的精选推荐。<br><span class="mini en">Curated private care picks for comfort, hygiene, and discreet everyday use.</span></p>
+          </article>
+
+          <article class="card category-card">
+            <h3>助眠放松</h3>
+            <p>涵盖助眠、放松、减压与舒缓生活方式相关产品。<br><span class="mini en">Products for better sleep, relaxation, stress relief, and calmer routines.</span></p>
+          </article>
+
+          <article class="card category-card">
+            <h3>按摩舒缓</h3>
+            <p>适合日常恢复、身体放松与居家舒适场景的实用好物。<br><span class="mini en">Useful comfort products for recovery, body relaxation, and home use.</span></p>
+          </article>
+
+          <article class="card category-card">
+            <h3>情侣好物</h3>
+            <p>面向成年人关系场景，强调温和、体面与体验感的推荐内容。<br><span class="mini en">Tasteful recommendations for adult relationship and intimacy-oriented settings.</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">页面示例</h2>
+        <p class="section-copy">
+          正式上线后，网站将提供分类页、专题页与精选单品页，方便快速浏览与筛选。
+        </p>
+
+        <div class="product-grid">
+          <article class="card product-card">
+            <div class="tag">本周热门</div>
+            <h3>轻松助眠专题</h3>
+            <p>整理适合夜间放松、舒缓压力与提升睡前体验的产品方向。<br><span class="mini en">Ideas for winding down at night and improving the pre-sleep experience.</span></p>
+          </article>
+
+          <article class="card product-card">
+            <div class="tag">精选推荐</div>
+            <h3>私密护理清单</h3>
+            <p>以低调、实用与舒适为核心，筛选更值得考虑的护理类商品。<br><span class="mini en">Private care picks selected for discretion, comfort, and practical value.</span></p>
+          </article>
+
+          <article class="card product-card">
+            <div class="tag">即将更新</div>
+            <h3>情侣生活灵感</h3>
+            <p>围绕关系场景与舒适体验，提供更克制、更体面的导购内容。<br><span class="mini en">A more restrained and brand-safe take on couples lifestyle recommendations.</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">我们重视的方向</h2>
+        <div class="trust">
+          <div class="card">
+            <strong>中文体验</strong>
+            <div class="mini">更适合中文用户浏览与选择<br><span class="mini en">Built for Chinese-language users.</span></div>
+          </div>
+          <div class="card">
+            <strong>低调友好</strong>
+            <div class="mini">页面风格尽量克制、清晰、简洁<br><span class="mini en">Clean, restrained, and easy to review.</span></div>
+          </div>
+          <div class="card">
+            <strong>精选整理</strong>
+            <div class="mini">从少量分类与优先级开始迭代<br><span class="mini en">Starting lean with a small set of categories.</span></div>
+          </div>
+          <div class="card">
+            <strong>持续更新</strong>
+            <div class="mini">根据反馈与点击数据不断优化<br><span class="mini en">Improved over time using engagement data.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer">
+        <div>
+          <p><strong>huangse.com</strong></p>
+          <p>联系邮箱：<a href="mailto:pinyindomains@yahoo.com">pinyindomains@yahoo.com</a></p>
+          <p class="mini">本站内容即将上线。部分未来页面可能包含合作链接。</p>
+          <p class="mini en">Chinese-language curated recommendation site focused on private care, comfort, relaxation, and couples lifestyle. Coming soon.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#">关于我们</a>
+          <a href="#">隐私说明</a>
+          <a href="#">合作声明</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
